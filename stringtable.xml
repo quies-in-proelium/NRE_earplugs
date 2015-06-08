@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="NRE Earplugs">
+	<Package name="NREEarplugs">
+		<Key ID="STR_NREEP_IN_HINT">
+			<Original>You have insert the earplugs!</Original>
+			<English>You have insert the earplugs!</English>
+			<German>Du hast die Ohrstoepsel eingesteckt!</German>
+		</Key>
+		<Key ID="STR_NREEP_OUT_HINT">
+			<Original>You have removed the earplugs!</Original>
+			<English>You have removed the earplugs!</English>
+			<German>Du hast die Ohrstoepsel rausgenommen!</German>
+		</Key>
+		<Key ID="STR_NREEP_IN_ACTION">
+			<Original>Insert earplugs</Original>
+			<English>Insert earplugs</English>
+			<German>Ohrstoepsel einstecken</German>
+		</Key>
+		<Key ID="STR_NREEP_OUT_ACTION">
+			<Original>Remove earplugs</Original>
+			<English>Remove earplugs</English>
+			<German>Ohrstoepsel rausnehmen</German>
+		</Key>
+	</Package>
+</Project>
