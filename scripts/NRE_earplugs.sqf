@@ -62,26 +62,24 @@ Manual:			Call from init.sqf via:
 					</Project>
 */
 
-waitUntil {! isnull player}; //to prevent MP / JIP issues
+waitUntil {!isNull player}; //to prevent MP / JIP issues
 
-NreEarplugsPath = "scripts\"
-
-player addEventHandler ["Respawn", {
-	NreEarplugsActive = 0;
-	1 fadeSound 1;
-	_id = player getVariable "NreEarplugsAction";
-	player removeAction _id;
-	_id = player addAction [("<t color=""#00FF00"">" + (localize "STR_NREEP_IN_ACTION") +"</t>"),NreEarplugsPath+"NRE_earplugs.sqf","",5,false,true,"",""];
-	player setVariable ["NreEarplugsAction", _id];
-}];
+NreEarplugsPath = "scripts\";
 
 if (isNil "NreEarplugsActive") then {
 	NreEarplugsActive = 0;
 	1 fadeSound 1;
-	_id = player getVariable "NreEarplugsAction";
-	player removeAction _id;
 	_id = player addAction [("<t color=""#00FF00"">" + (localize "STR_NREEP_IN_ACTION") +"</t>"),NreEarplugsPath+"NRE_earplugs.sqf","",5,false,true,"",""];
 	player setVariable ["NreEarplugsAction", _id];
+	// Handle respawn
+	player addEventHandler ["Respawn", {
+		NreEarplugsActive = 0;
+		1 fadeSound 1;
+		_id = (_this select 1) getVariable "NreEarplugsAction";
+		(_this select 1) removeAction _id;
+		_id = (_this select 0) addAction [("<t color=""#00FF00"">" + (localize "STR_NREEP_IN_ACTION") +"</t>"),NreEarplugsPath+"NRE_earplugs.sqf","",5,false,true,"",""];
+		(_this select 0) setVariable ["NreEarplugsAction", _id];
+	}];
 	breakto "firstInitFinished";
 };
 
@@ -104,4 +102,3 @@ if ( NreEarplugsActive == 1 ) then {
 };
 
 scopename "firstInitFinished";
-
