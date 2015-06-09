@@ -54,6 +54,8 @@ Manual:			Call from init.sqf via:
 					</Project>
 */
 
+waitUntil {! isnull player}; //to prevent MP / JIP issues
+
 NreEarplugsPath = "scripts\"
 
 player addEventHandler ["Respawn", {
